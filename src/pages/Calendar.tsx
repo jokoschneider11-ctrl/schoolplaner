@@ -151,7 +151,11 @@ export default function Calendar() {
                     selectedHoliday.type === 'school' ? 'bg-success-500' : 'bg-accent-500'
                   }`}
                 />
+<<<<<<< HEAD
                 <span className="text-sm text-slate-600 break-anywhere">{selectedHoliday.name}</span>
+=======
+                <span className="text-sm text-slate-600">{selectedHoliday.name}</span>
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
               </div>
               <p className="text-xs text-slate-400 mt-1">
                 {new Date(selectedHoliday.startDate).toLocaleDateString('de-DE')} -{' '}
@@ -194,7 +198,11 @@ export default function Calendar() {
                   <CalendarIcon size={18} />
                 </div>
                 <div className="flex-1 min-w-0">
+<<<<<<< HEAD
                   <p className="text-sm font-semibold text-slate-900 truncate break-anywhere">
+=======
+                  <p className="text-sm font-semibold text-slate-900 truncate">
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
                     {holiday.name}
                   </p>
                   <p className="text-xs text-slate-400">

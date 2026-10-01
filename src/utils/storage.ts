@@ -80,8 +80,13 @@ export function clearSession(): void {
   localStorage.removeItem(SESSION_KEY);
 }
 
+<<<<<<< HEAD
 export function clearCredentials(): void {
   const settings = loadSettings();
   settings.credentials = null;
   saveSettings(settings);
+=======
+export function hasCredentials(): boolean {
+  return loadSettings().credentials !== null;
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
 }

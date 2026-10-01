@@ -15,14 +15,23 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
+<<<<<<< HEAD
       <main className="flex-1 pb-20 overflow-x-hidden">
+=======
+      <main className="flex-1 pb-20 safe-bottom overflow-x-hidden">
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
         <div key={location.pathname} className="animate-fade-in">
           {children}
         </div>
       </main>
 
+<<<<<<< HEAD
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-50 safe-bottom shadow-lg">
         <div className="max-w-md mx-auto flex items-stretch h-16">
+=======
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-50 safe-bottom">
+        <div className="max-w-md mx-auto flex items-stretch">
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
           {navItems.map((item) => {
             const Icon = item.icon;
             return (

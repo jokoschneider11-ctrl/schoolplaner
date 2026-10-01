@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
+=======
+import { useState } from 'react';
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
 import { useApp } from '../context/AppContext';
 import { FEDERAL_STATES, SCHOOL_TYPES } from '../types';
 import type { UserProfile, UntisCredentials } from '../types';
@@ -41,21 +45,29 @@ const FAQ_ITEMS = [
 ];
 
 export default function Profile() {
+<<<<<<< HEAD
   const { settings, setProfile, setCredentials, loginUntis, logoutUntis, clearCredentials, session, resetAll, refreshHolidays } = useApp();
+=======
+  const { settings, setProfile, setCredentials, loginUntis, logoutUntis, session, resetAll, refreshHolidays } = useApp();
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
   const [showAccount, setShowAccount] = useState(false);
   const [showProfileEdit, setShowProfileEdit] = useState(false);
   const [showFaq, setShowFaq] = useState<number | null>(0);
   const [showReset, setShowReset] = useState(false);
+<<<<<<< HEAD
   const [isConnecting, setIsConnecting] = useState(false);
   const [loginError, setLoginError] = useState('');
   const [aiApiKey, setAiApiKey] = useState('');
   const [showAiSettings, setShowAiSettings] = useState(false);
+=======
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
 
   const [profile, setProfileState] = useState<UserProfile>(settings.profile);
   const [creds, setCreds] = useState<UntisCredentials>(
     settings.credentials || { username: '', password: '', school: 'gywa', serverHost: 'gywa.webuntis.com' }
   );
 
+<<<<<<< HEAD
   useEffect(() => {
     const savedKey = localStorage.getItem('schoolplanner_ai_api_key');
     if (savedKey) setAiApiKey(savedKey);
@@ -66,6 +78,8 @@ export default function Profile() {
     setShowAiSettings(false);
   };
 
+=======
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
   const handleProfileSave = () => {
     setProfile(profile);
     setShowProfileEdit(false);
@@ -73,6 +87,7 @@ export default function Profile() {
   };
 
   const handleCredsSave = async () => {
+<<<<<<< HEAD
     setIsConnecting(true);
     setLoginError('');
     try {
@@ -89,6 +104,11 @@ export default function Profile() {
     } finally {
       setIsConnecting(false);
     }
+=======
+    setCredentials(creds);
+    await loginUntis(creds);
+    setShowAccount(false);
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
   };
 
   return (
@@ -102,10 +122,17 @@ export default function Profile() {
             <UserIcon size={28} className="text-white" />
           </div>
           <div className="flex-1 min-w-0">
+<<<<<<< HEAD
             <p className="font-bold text-slate-900 truncate break-anywhere">
               {session?.displayName || settings.credentials?.username || 'Nicht angemeldet'}
             </p>
             <p className="text-sm text-slate-400 truncate break-anywhere">
+=======
+            <p className="font-bold text-slate-900 truncate">
+              {session?.displayName || settings.credentials?.username || 'Nicht angemeldet'}
+            </p>
+            <p className="text-sm text-slate-400 truncate">
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
               {settings.profile.schoolType} · {settings.profile.classLevel || 'Keine Klasse'}
             </p>
           </div>
@@ -140,7 +167,11 @@ export default function Profile() {
         <div className="space-y-3">
           <InfoRow
             label="Status"
+<<<<<<< HEAD
             value={session ? 'Verbunden / Angemeldet' : 'Nicht angemeldet'}
+=======
+            value={session ? 'Angemeldet' : 'Nicht angemeldet'}
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
             valueColor={session ? 'text-success-600' : 'text-warning-600'}
           />
           <InfoRow label="Schule" value={settings.credentials?.school || '—'} />
@@ -150,6 +181,7 @@ export default function Profile() {
               onClick={() => setShowAccount(true)}
               className="btn-secondary flex-1 text-sm py-2.5"
             >
+<<<<<<< HEAD
               {session ? 'Zugangsdaten ändern' : 'Konto verbinden'}
             </button>
             {session && (
@@ -161,12 +193,23 @@ export default function Profile() {
                 className="btn-danger py-2.5 px-3 text-sm"
               >
                 Trennen
+=======
+              Zugangsdaten ändern
+            </button>
+            {session && (
+              <button
+                onClick={logoutUntis}
+                className="btn-danger py-2.5 px-3"
+              >
+                <LogoutIcon size={16} />
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
               </button>
             )}
           </div>
         </div>
       </Section>
 
+<<<<<<< HEAD
       {/* AI Assistant Options */}
       <Section title="KI-Assistent Optionen" icon={HelpIcon}>
         <div className="space-y-3">
@@ -184,6 +227,8 @@ export default function Profile() {
         </div>
       </Section>
 
+=======
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
       {/* Support */}
       <Section title="Hilfe & Support" icon={HelpIcon}>
         <div className="space-y-1">
@@ -338,6 +383,7 @@ export default function Profile() {
                 />
               </div>
             </div>
+<<<<<<< HEAD
             {loginError && (
               <div className="p-3 bg-error-50 rounded-xl border border-error-200">
                 <p className="text-sm text-error-600">{loginError}</p>
@@ -349,6 +395,10 @@ export default function Profile() {
               className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isConnecting ? 'Verbinde...' : 'Konto verbinden'}
+=======
+            <button onClick={handleCredsSave} className="btn-primary w-full">
+              Speichern & Anmelden
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
             </button>
             <p className="text-xs text-slate-400 text-center">
               Deine Daten werden nur lokal gespeichert.
@@ -357,6 +407,7 @@ export default function Profile() {
         </Modal>
       )}
 
+<<<<<<< HEAD
       {/* AI Settings Modal */}
       {showAiSettings && (
         <Modal onClose={() => setShowAiSettings(false)} title="KI-Assistent API-Key">
@@ -381,6 +432,8 @@ export default function Profile() {
         </Modal>
       )}
 
+=======
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
       {/* Reset Confirmation */}
       {showReset && (
         <div

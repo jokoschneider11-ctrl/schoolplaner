@@ -7,7 +7,10 @@ import type { UntisLesson } from '../types';
 import { calculateOverallGPA, formatAverage } from '../utils/grades';
 import { isToday } from '../utils/date';
 import { ClockIcon, MapPinIcon, AlertIcon, ChartIcon, BookIcon, CalendarIcon } from '../components/Icons';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
+=======
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
 
 export default function Home() {
   const navigate = useNavigate();
@@ -25,10 +28,14 @@ export default function Home() {
   );
 
   useEffect(() => {
+<<<<<<< HEAD
     if (!session || !settings.credentials) {
       setLessonError('Bitte melde dich bei WebUntis an, um den Stundenplan zu sehen.');
       return;
     }
+=======
+    if (!session || !settings.credentials) return;
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
 
     const fetchToday = async () => {
       setLoadingLessons(true);
@@ -89,7 +96,11 @@ export default function Home() {
             <p className="text-white/80 text-xs font-medium uppercase tracking-wide">
               Nächste Ferien
             </p>
+<<<<<<< HEAD
             <p className="text-white text-lg font-bold mt-1 break-anywhere">{nextHoliday.name}</p>
+=======
+            <p className="text-white text-lg font-bold mt-1">{nextHoliday.name}</p>
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
             <div className="flex items-baseline gap-1 mt-2">
               <span className="text-white text-3xl font-bold">{daysLeft}</span>
               <span className="text-white/80 text-sm">
@@ -170,11 +181,14 @@ export default function Home() {
           <div className="card p-4 text-center">
             <AlertIcon size={24} className="text-warning-500 mx-auto mb-2" />
             <p className="text-sm text-slate-500">{lessonError}</p>
+<<<<<<< HEAD
             {!session && (
               <Link to="/profile" className="btn-primary mt-3 text-sm inline-block">
                 Zu den Einstellungen
               </Link>
             )}
+=======
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
           </div>
         )}
 

@@ -182,7 +182,11 @@ export default function Grades() {
                     </span>
                   </div>
                   <div className="flex-1 min-w-0">
+<<<<<<< HEAD
                     <p className="font-semibold text-slate-900 truncate break-anywhere">
+=======
+                    <p className="font-semibold text-slate-900 truncate">
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
                       {subject.name}
                     </p>
                     <p className="text-xs text-slate-400">
@@ -227,10 +231,17 @@ export default function Grades() {
                                   {formatGrade(grade)}
                                 </div>
                                 <div className="flex-1 min-w-0">
+<<<<<<< HEAD
                                   <p className="text-xs font-medium text-slate-700 break-anywhere">
                                     {cat?.name || 'Allgemein'}
                                   </p>
                                   <p className="text-[11px] text-slate-400 break-anywhere">
+=======
+                                  <p className="text-xs font-medium text-slate-700">
+                                    {cat?.name || 'Allgemein'}
+                                  </p>
+                                  <p className="text-[11px] text-slate-400">
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
                                     {new Date(grade.date).toLocaleDateString('de-DE')}
                                     {grade.note && ` · ${grade.note}`}
                                   </p>
@@ -278,7 +289,11 @@ export default function Grades() {
                             >
                               <FileIcon size={14} className="text-slate-400 flex-shrink-0" />
                               <div className="flex-1 min-w-0">
+<<<<<<< HEAD
                                 <p className="text-xs font-medium text-slate-700 truncate break-anywhere">
+=======
+                                <p className="text-xs font-medium text-slate-700 truncate">
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
                                   {att.name}
                                 </p>
                                 <p className="text-[10px] text-slate-400">

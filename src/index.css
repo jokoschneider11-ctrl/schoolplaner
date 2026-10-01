@@ -21,6 +21,7 @@
   input, textarea, select {
     user-select: text;
   }
+<<<<<<< HEAD
 
   table, td, th {
     word-break: break-word;
@@ -31,6 +32,8 @@
     word-break: break-word;
     overflow-wrap: anywhere;
   }
+=======
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
 }
 
 @layer components {

@@ -10,7 +10,10 @@ import {
 import type { UntisLesson, UntisSubstitution } from '../types';
 import { getWeekDays, isToday, getWeekNumber } from '../utils/date';
 import { ChevronLeftIcon, ChevronRightIcon, ClockIcon, MapPinIcon, AlertIcon } from '../components/Icons';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
+=======
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
 
 const DAY_LABELS = ['Mo', 'Di', 'Mi', 'Do', 'Fr'];
 
@@ -32,10 +35,14 @@ export default function Timetable() {
   const weekNum = useMemo(() => getWeekNumber(weekStart), [weekStart]);
 
   const fetchData = useCallback(async () => {
+<<<<<<< HEAD
     if (!session || !settings.credentials) {
       setError('Bitte melde dich bei WebUntis an, um den Stundenplan zu sehen.');
       return;
     }
+=======
+    if (!session || !settings.credentials) return;
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
     setLoading(true);
     setError('');
     try {
@@ -124,11 +131,14 @@ export default function Timetable() {
         <div className="card p-4 text-center mb-4">
           <AlertIcon size={24} className="text-warning-500 mx-auto mb-2" />
           <p className="text-sm text-slate-500">{error}</p>
+<<<<<<< HEAD
           {!session && (
             <Link to="/profile" className="btn-primary mt-3 text-sm inline-block">
               Zu den Einstellungen
             </Link>
           )}
+=======
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
         </div>
       )}
 
@@ -194,7 +204,11 @@ export default function Timetable() {
                           <div className="flex-1 min-w-0 overflow-hidden">
                             <div className="flex items-center gap-1.5">
                               <p
+<<<<<<< HEAD
                                 className="font-semibold text-xs truncate break-anywhere"
+=======
+                                className="font-semibold text-xs truncate"
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
                                 style={{ color: isCancelled ? '#94a3b8' : color }}
                               >
                                 {lesson.subjectLong || lesson.subject || '—'}
@@ -217,6 +231,7 @@ export default function Timetable() {
                               </span>
                               <span className="flex items-center gap-0.5 truncate">
                                 <MapPinIcon size={10} className="flex-shrink-0" />
+<<<<<<< HEAD
                                 <span className="truncate break-anywhere">{lesson.room || '—'}</span>
                               </span>
                               {lesson.teacher && (
@@ -225,6 +240,16 @@ export default function Timetable() {
                             </div>
                             {lesson.substText && (
                               <p className="text-[10px] text-warning-600 mt-0.5 truncate break-anywhere">
+=======
+                                <span className="truncate">{lesson.room || '—'}</span>
+                              </span>
+                              {lesson.teacher && (
+                                <span className="truncate">{lesson.teacher}</span>
+                              )}
+                            </div>
+                            {lesson.substText && (
+                              <p className="text-[10px] text-warning-600 mt-0.5 truncate">
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
                                 {lesson.substText}
                               </p>
                             )}

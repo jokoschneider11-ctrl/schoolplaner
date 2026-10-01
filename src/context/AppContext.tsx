@@ -19,7 +19,11 @@ import {
   saveSession,
   getSession,
   clearSession,
+<<<<<<< HEAD
   clearCredentials,
+=======
+  hasCredentials,
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
 } from '../utils/storage';
 import { authenticate, logout } from '../utils/untis';
 import { fetchHolidays } from '../utils/holidays';
@@ -33,10 +37,17 @@ interface AppContextValue {
   session: UntisSession | null;
   loginUntis: (creds: UntisCredentials) => Promise<boolean>;
   logoutUntis: () => void;
+<<<<<<< HEAD
   clearCredentials: () => void;
   holidays: Holiday[];
   loadingHolidays: boolean;
   refreshHolidays: () => void;
+=======
+  holidays: Holiday[];
+  loadingHolidays: boolean;
+  refreshHolidays: () => void;
+  isConfigured: boolean;
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
   resetAll: () => void;
 }
 
@@ -76,7 +87,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
       return true;
     } catch (err) {
       console.error('Untis login failed:', err);
+<<<<<<< HEAD
       throw err;
+=======
+      return false;
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
     }
   }, []);
 
@@ -88,6 +103,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setSession(null);
   }, [settings.credentials, session]);
 
+<<<<<<< HEAD
   const clearCredentialsState = useCallback(() => {
     clearCredentials();
     clearSession();
@@ -100,6 +116,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
     try {
       const validFrom = '2026-01-01';
       const validTo = '2027-12-31';
+=======
+  const refreshHolidays = useCallback(async () => {
+    setLoadingHolidays(true);
+    try {
+      const year = new Date().getFullYear();
+      const validFrom = `${year}-01-01`;
+      const validTo = `${year + 1}-12-31`;
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
       const data = await fetchHolidays(settings.profile.federalStateCode, validFrom, validTo);
       setHolidays(data);
     } catch (err) {
@@ -123,9 +147,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // Auto-login on startup if credentials exist
   useEffect(() => {
     if (settings.credentials && !session) {
+<<<<<<< HEAD
       loginUntis(settings.credentials).catch(() => {
         // Silent fail on auto-login
       });
+=======
+      loginUntis(settings.credentials);
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
     }
   }, [settings.credentials, session, loginUntis]);
 
@@ -138,10 +166,17 @@ export function AppProvider({ children }: { children: ReactNode }) {
     session,
     loginUntis,
     logoutUntis,
+<<<<<<< HEAD
     clearCredentials: clearCredentialsState,
     holidays,
     loadingHolidays,
     refreshHolidays,
+=======
+    holidays,
+    loadingHolidays,
+    refreshHolidays,
+    isConfigured: hasCredentials(),
+>>>>>>> f7a41313dc415e6f01cf2d737457bd4412f0d8bc
     resetAll,
   };
 
