@@ -1,0 +1,11 @@
+{
+  "name": "SchoolPlanner",
+  "short_name": "Planner",
+  "description": "A free school planner with timetable, grades, and holiday countdown",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#1d54f5",
+  "orientation": "portrait",
+  "icons": []
+}
